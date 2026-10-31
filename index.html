@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Promoção Fitness | 15 Peças por R$ 1,00</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(234, 88, 12, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(234, 88, 12, 0.8); }
+        }
+        .pulse-orange { animation: pulseGlow 2s infinite; }
+        .toast-enter { transform: translateY(100%); opacity: 0; transition: all 0.3s ease-out; }
+        .toast-show { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased min-h-screen pb-12">
+
+    <!-- BARRA DE URGÊNCIA SUPERIOR -->
+    <div class="bg-orange-600 text-white font-black text-xs text-center py-2.5 px-4 uppercase tracking-wider sticky top-0 z-50 shadow-md">
+        🔥 QUEIMA DE ESTOQUE: Apenas <span id="estoque">17</span> Kits Restantes no Lote VIP!
+    </div>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="max-w-md mx-auto px-4 pt-6">
+
+        <!-- HEADER DA OFERTA -->
+        <header class="text-center space-y-3">
+            <span class="inline-block bg-orange-500/10 border border-orange-500/30 text-orange-400 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest">
+                📦 Envio Direto de Fábrica para Todo o Brasil
+            </span>
+            <h1 class="text-3xl font-black leading-tight tracking-tight uppercase">
+                KIT FITNESS 15 PEÇAS <br><span class="text-orange-500">POR APENAS R$ 1,00</span>
+            </h1>
+            <p class="text-slate-300 text-sm leading-relaxed">
+                Renove o seu guarda-roupa de treino inteiro sem gastar quase nada. Leve <strong class="text-white">15 peças variadas</strong> (leggings, shorts e tops) diretamente da nossa fábrica por apenas <strong class="text-orange-400">R$ 1,00</strong>.
+            </p>
+        </header>
+
+        <!-- BANNER / GALERIA DE PROVA VISUAL -->
+        <div class="mt-6 bg-slate-900 border border-slate-800 rounded-2xl p-4 text-center space-y-3">
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center space-y-2">
+                <span class="text-5xl">🏋️‍♀️🧘‍♀️🎽</span>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Conteúdo do Kit VIP 15 Peças</p>
+                <div class="flex flex-wrap justify-center gap-1.5 text-[11px] font-semibold text-orange-400 mt-1">
+                    <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded-md">Leggings Alta Compressão</span>
+                    <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded-md">Shorts de Treino</span>
+                    <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded-md">Tops com Sustentação</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs text-slate-400 px-2">
+                <span class="flex items-center gap-1">🚚 <strong>Prazo de Entrega:</strong> 14 a 21 dias úteis</span>
+                <span class="text-green-400 font-semibold">✓ Garantia de Entrega</span>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO DE PEDIDO / CHECKOUT -->
+        <section class="mt-6 bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-2xl space-y-4">
+            
+            <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+                1. Selecione o Seu Tamanho Ideal:
+            </h2>
+
+            <!-- SELETOR DE TAMANHO -->
+            <div class="grid grid-cols-4 gap-2">
+                <button onclick="selecionarTamanho('P', this)" class="btn-tamanho bg-slate-950 border-2 border-orange-500 text-orange-400 font-bold py-3 rounded-xl transition text-center text-sm">P</button>
+                <button onclick="selecionarTamanho('M', this)" class="btn-tamanho bg-slate-950 border border-slate-800 text-slate-300 font-bold py-3 rounded-xl transition text-center text-sm hover:border-slate-700">M</button>
+                <button onclick="selecionarTamanho('G', this)" class="btn-tamanho bg-slate-950 border border-slate-800 text-slate-300 font-bold py-3 rounded-xl transition text-center text-sm hover:border-slate-700">G</button>
+                <button onclick="selecionarTamanho('GG', this)" class="btn-tamanho bg-slate-950 border border-slate-800 text-slate-300 font-bold py-3 rounded-xl transition text-center text-sm hover:border-slate-700">GG</button>
+            </div>
+
+            <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2 pt-2">
+                2. Dados de Envio:
+            </h2>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Seu Nome Completo:</label>
+                    <input type="text" id="nomeInput" placeholder="Digite seu nome" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-orange-500 transition text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">WhatsApp (para código de rastreio):</label>
+                    <input type="tel" id="phoneInput" placeholder="(11) 99999-9999" maxlength="15" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-orange-500 transition text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">CEP de Entrega:</label>
+                    <input type="text" id="cepInput" placeholder="00000-000" maxlength="9" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-orange-500 transition text-sm">
+                </div>
+            </div>
+
+            <!-- RESUMO DOS VALORES -->
+            <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2 text-xs">
+                <div class="flex justify-between text-slate-400">
+                    <span>Kit Fitness 15 Peças (Tamanho <strong id="tamanhoSelecionado" class="text-white">P</strong>):</span>
+                    <span class="text-white font-bold">R$ 1,00</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                    <span>Taxa Logística / Frete Seguro (Todo Brasil):</span>
+                    <span class="text-white font-bold">R$ 39,90</span>
+                </div>
+                <div class="border-t border-slate-800 pt-2 flex justify-between text-sm font-black text-white">
+                    <span>TOTAL A PAGAR (PIX):</span>
+                    <span class="text-orange-400 text-base">R$ 40,90</span>
+                </div>
+            </div>
+
+            <!-- BOTÃO DE AÇÃO -->
+            <button onclick="gerarPedidoPix()" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-black text-base py-4 rounded-xl pulse-orange uppercase tracking-wider transition active:scale-95 flex items-center justify-center space-x-2">
+                <span>RESGATAR 15 PEÇAS POR R$ 1,00</span>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/></svg>
+            </button>
+
+            <!-- PIX CONTAINER (EXIBIDO APÓS CLICAR) -->
+            <div id="pixContainer" class="hidden mt-6 pt-6 border-t border-slate-800 text-center space-y-4">
+                <span class="inline-block bg-amber-500/20 text-amber-400 font-bold text-xs px-3 py-1 rounded-full">
+                    ⏱️ Reserva garantida por <span id="timer">10:00</span>
+                </span>
+                
+                <div class="bg-white p-3 rounded-xl inline-block">
+                    <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020126580014BR.GOV.BCB.PIX0136suachavepixaqui52040000530398654041.005802BR5910MudeSuaVida6009SAO_PAULO62070503***6304E2CA" alt="QR Code PIX" class="w-44 h-44 mx-auto">
+                </div>
+
+                <div class="space-y-2">
+                    <button onclick="copiarChavePix()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl border border-slate-700 flex items-center justify-center space-x-2 transition text-sm">
+                        <span>Copiar Chave PIX Copia e Cola</span>
+                        <span>📋</span>
+                    </button>
+                    <p class="text-xs text-slate-400 leading-relaxed">Pague no app do seu banco. Assim que o Pix for aprovado, você receberá a confirmação e o código de rastreamento no seu WhatsApp!</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- NOTIFICAÇÃO DE PROVA SOCIAL -->
+    <div id="toast" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-slate-900 border border-orange-500/40 p-3 rounded-xl shadow-2xl flex items-center space-x-3 toast-enter pointer-events-none">
+        <div class="bg-orange-500/20 text-orange-400 p-2 rounded-lg text-lg">🛍️</div>
+        <div class="text-xs">
+            <p class="font-bold text-white" id="toastUser">Mariana K. (Campinas - SP)</p>
+            <p class="text-slate-400">Garantiu o Kit 15 Peças (Tamanho M) agora há pouco!</p>
+        </div>
+    </div>
+
+    <script>
+        let tamanhoAtual = 'P';
+
+        function selecionarTamanho(tam, el) {
+            tamanhoAtual = tam;
+            document.getElementById('tamanhoSelecionado').innerText = tam;
+            document.querySelectorAll('.btn-tamanho').forEach(btn => {
+                btn.classList.remove('border-2', 'border-orange-500', 'text-orange-400');
+                btn.classList.add('border-slate-800', 'text-slate-300');
+            });
+            el.classList.remove('border-slate-800', 'text-slate-300');
+            el.classList.add('border-2', 'border-orange-500', 'text-orange-400');
+        }
+
+        // Máscaras de entrada
+        const phoneInput = document.getElementById('phoneInput');
+        phoneInput.addEventListener('input', (e) => {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        const cepInput = document.getElementById('cepInput');
+        cepInput.addEventListener('input', (e) => {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,5})(\d{0,3})/);
+            e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2];
+        });
+
+        function gerarPedidoPix() {
+            const nome = document.getElementById('nomeInput').value;
+            const phone = phoneInput.value;
+            const cep = cepInput.value;
+
+            if (!nome || phone.length < 14 || cep.length < 9) {
+                alert('Preencha seu nome, WhatsApp e CEP corretamente para calcular o envio!');
+                return;
+            }
+
+            document.getElementById('pixContainer').classList.remove('hidden');
+            startTimer(600);
+        }
+
+        function copiarChavePix() {
+            const chaveFake = "00020126580014BR.GOV.BCB.PIX0136suachavepixaqui52040000530398654041.005802BR5910MudeSuaVida6009SAO_PAULO62070503***6304E2CA";
+            navigator.clipboard.writeText(chaveFake);
+            alert("Chave Pix Copia e Cola copiada com sucesso!");
+        }
+
+        function startTimer(duration) {
+            let timer = duration, minutes, seconds;
+            const display = document.getElementById('timer');
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "EXPIRADO";
+                }
+            }, 1000);
+        }
+
+        // Prova Social Rotativa
+        const nomes = ["Camila R.", "Fernanda S.", "Beatriz M.", "Juliana C.", "Vanessa P.", "Patrícia L."];
+        const cidades = ["São Paulo - SP", "Rio de Janeiro - RJ", "Belo Horizonte - MG", "Curitiba - PR", "Salvador - BA", "Brasília - DF"];
+        const tamanhos = ["P", "M", "G", "GG"];
+
+        function mostrarProvaSocial() {
+            const toast = document.getElementById('toast');
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+            const tam = tamanhos[Math.floor(Math.random() * tamanhos.length)];
+            
+            document.getElementById('toastUser').innerText = `${nome} (${cidade})`;
+            toast.querySelector('.text-slate-400').innerText = `Garantiu o Kit 15 Peças (Tamanho ${tam}) agora há pouco!`;
+            toast.classList.add('toast-show');
+
+            setTimeout(() => {
+                toast.classList.remove('toast-show');
+            }, 4500);
+        }
+
+        setInterval(mostrarProvaSocial, 9000);
+    </script>
+</body>
+</html>
